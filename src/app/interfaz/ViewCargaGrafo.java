@@ -6,10 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import app.componentes.Grafo;
-
-import app.componentes.Grafo;
+import app.componentes.GrafoJSONLoader;
 
 public class ViewCargaGrafo extends JFrame {
     private Grafo grafo;
@@ -49,15 +47,18 @@ public class ViewCargaGrafo extends JFrame {
     }
 
     private void cargarGrafoDesdeJson() {
-        JFileChooser fileChooser = new JFileChooser();
+    	JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Archivos JSON", "json"));
         int returnValue = fileChooser.showOpenDialog(this);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             try {
-                ObjectMapper mapper = new ObjectMapper();
-                grafo = mapper.readValue(selectedFile, Grafo.class);
+                grafo = GrafoJSONLoader.cargarGrafoDesdeJson(selectedFile);
+                grafo.imprimirMatrizAdyacencia();
+                grafo.imprimirPesos();
+                System.out.println(grafo.getV());
                 JOptionPane.showMessageDialog(this, "Grafo cargado correctamente desde " + selectedFile.getName());
+                
             } catch (IOException e) {
                 System.err.println(e);
                 JOptionPane.showMessageDialog(this, "Error al cargar el archivo JSON: " + e.getMessage());
@@ -80,3 +81,4 @@ public class ViewCargaGrafo extends JFrame {
                "}";
     }
 }
+    
