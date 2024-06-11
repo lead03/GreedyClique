@@ -5,7 +5,7 @@ public class Grafo {
 	private int[][] matrizAdyacencia;
 	double[] pesos;
 
-	Grafo(int V, double[] pesos) {
+	public Grafo(int V, double[] pesos) {
 		this.V = V;
 		this.pesos = pesos;
 		matrizAdyacencia = new int[V][V];
