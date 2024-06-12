@@ -59,6 +59,8 @@ public class ViewCargaGrafo extends JFrame {
                 System.out.println(grafo.getV());
                 JOptionPane.showMessageDialog(this, "Grafo cargado correctamente desde " + selectedFile.getName());
                 
+                
+                Enrutador.getInstancia().finishWindows(this, new ViewPantallaFinal(grafo), false);
             } catch (IOException e) {
                 System.err.println(e);
                 JOptionPane.showMessageDialog(this, "Error al cargar el archivo JSON: " + e.getMessage());
