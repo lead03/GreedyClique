@@ -5,12 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 import app.componentes.Grafo;
 import app.componentes.GrafoJSONLoader;
 
 public class ViewCargaGrafo extends JFrame {
-    private Grafo grafo;
+	private static final long serialVersionUID = 1L;
+
+	private Grafo grafo;
 
     public ViewCargaGrafo() {
         setTitle("Carga de Grafo desde JSON");
@@ -58,8 +59,7 @@ public class ViewCargaGrafo extends JFrame {
                 
                 
                 Enrutador.getInstancia().finishWindows(this, new ViewPantallaFinal(grafo), false);
-            } catch (IOException e) {
-                System.err.println(e);
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error al cargar el archivo JSON: " + e.getMessage());
             }
         }

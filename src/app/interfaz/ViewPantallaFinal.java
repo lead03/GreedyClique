@@ -18,9 +18,11 @@ import app.logica.CliqueMaximaService;
 
 public class ViewPantallaFinal extends JFrame {
 
-    public ViewPantallaFinal(Grafo grafo) {
-        setTitle("Visualización del Grafo y la Clique");
-        setSize(1920, 1080);
+	private static final long serialVersionUID = 1L;
+	public ViewPantallaFinal(Grafo grafo) {
+        setTitle("Carga de Grafo desde JSON");
+        setSize(1000, 700);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout());
 
@@ -87,10 +89,11 @@ public class ViewPantallaFinal extends JFrame {
         }
 
         mxGraphComponent graphComponent = new mxGraphComponent(graph);
-        graphComponent.setCenterPage(true);  // Centrar el grafo en la página
+        graphComponent.setCenterPage(true);
         panel.add(graphComponent, BorderLayout.CENTER);
 
         mxCircleLayout layout = new mxCircleLayout(graph);
         layout.execute(parent);
     }
+        
 }
