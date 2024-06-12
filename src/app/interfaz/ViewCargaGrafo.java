@@ -10,7 +10,9 @@ import app.componentes.Grafo;
 import app.componentes.GrafoJSONLoader;
 
 public class ViewCargaGrafo extends JFrame {
-    private Grafo grafo;
+	private static final long serialVersionUID = 1L;
+
+	private Grafo grafo;
 
     public ViewCargaGrafo() {
         setTitle("Carga de Grafo desde JSON");

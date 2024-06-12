@@ -13,6 +13,8 @@ import app.logica.CliqueMaximaService;
 
 public class ViewPantallaFinal extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+
 	public ViewPantallaFinal(Grafo grafo) {
         setTitle("Carga de Grafo desde JSON");
         setSize(600, 400);
@@ -37,8 +39,6 @@ public class ViewPantallaFinal extends JFrame {
         	 textAreaEjemplo.setText(e.getMessage());
 		}
         
-        
-       
     }
 	
 	
