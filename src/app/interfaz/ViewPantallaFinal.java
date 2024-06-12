@@ -2,12 +2,10 @@ package app.interfaz;
 
 import java.awt.BorderLayout;
 import java.util.Set;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
 import app.componentes.Grafo;
 import app.logica.CliqueMaximaService;
 
@@ -40,8 +38,5 @@ public class ViewPantallaFinal extends JFrame {
 		}
         
     }
-	
-	
 
-	
 }
