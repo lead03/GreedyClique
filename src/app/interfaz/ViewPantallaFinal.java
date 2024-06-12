@@ -18,8 +18,9 @@ import app.logica.CliqueMaximaService;
 
 public class ViewPantallaFinal extends JFrame {
 
-	private static final long serialVersionUID = 1L;
-	public ViewPantallaFinal(Grafo grafo) {
+    private static final long serialVersionUID = 1L;
+
+    public ViewPantallaFinal(Grafo grafo) {
         setTitle("Carga de Grafo desde JSON");
         setSize(1000, 700);
 
@@ -56,7 +57,7 @@ public class ViewPantallaFinal extends JFrame {
             getContentPane().add(new JScrollPane(textAreaError), BorderLayout.SOUTH);
         }
     }
-    
+
     private void dibujarGrafo(Grafo grafo, Set<Integer> clique, JPanel panel) {
         mxGraph graph = new mxGraph();
         Object parent = graph.getDefaultParent();
@@ -77,9 +78,9 @@ public class ViewPantallaFinal extends JFrame {
                 for (int j = i + 1; j < grafo.getV(); j++) {
                     if (grafo.sonVecinos(i, j)) {
                         if (clique.contains(i) && clique.contains(j)) {
-                            graph.insertEdge(parent, null, "", vertices[i], vertices[j], "strokeColor=red");
+                            graph.insertEdge(parent, null, "", vertices[i], vertices[j], "strokeColor=red;endArrow=none");
                         } else {
-                            graph.insertEdge(parent, null, "", vertices[i], vertices[j]);
+                            graph.insertEdge(parent, null, "", vertices[i], vertices[j], "endArrow=none");
                         }
                     }
                 }
@@ -95,5 +96,4 @@ public class ViewPantallaFinal extends JFrame {
         mxCircleLayout layout = new mxCircleLayout(graph);
         layout.execute(parent);
     }
-        
 }
