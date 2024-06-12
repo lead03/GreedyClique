@@ -60,8 +60,7 @@ public class ViewCargaGrafo extends JFrame {
                 
                 
                 Enrutador.getInstancia().finishWindows(this, new ViewPantallaFinal(grafo), false);
-            } catch (IOException e) {
-                System.err.println(e);
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error al cargar el archivo JSON: " + e.getMessage());
             }
         }
