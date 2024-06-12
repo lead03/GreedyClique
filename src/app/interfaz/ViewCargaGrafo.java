@@ -54,9 +54,6 @@ public class ViewCargaGrafo extends JFrame {
             File selectedFile = fileChooser.getSelectedFile();
             try {
                 grafo = GrafoJSONLoader.cargarGrafoDesdeJson(selectedFile);
-                grafo.imprimirMatrizAdyacencia();
-                grafo.imprimirPesos();
-                System.out.println(grafo.getV());
                 JOptionPane.showMessageDialog(this, "Grafo cargado correctamente desde " + selectedFile.getName());
                 
                 

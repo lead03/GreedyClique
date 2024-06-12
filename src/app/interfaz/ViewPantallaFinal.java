@@ -2,12 +2,10 @@ package app.interfaz;
 
 import java.awt.BorderLayout;
 import java.util.Set;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
 import app.componentes.Grafo;
 import app.logica.CliqueMaximaService;
 
@@ -35,13 +33,6 @@ public class ViewPantallaFinal extends JFrame {
         	 textAreaEjemplo.setText(" La clique de peso máximo en este grafo es " + clique + ", y tiene un peso de " + pesoMaximo + ".");
         }catch (Exception e) {
         	 textAreaEjemplo.setText(e.getMessage());
-		}
-        
-        
-       
-    }
-	
-	
-
-	
+		}     
+    }	
 }

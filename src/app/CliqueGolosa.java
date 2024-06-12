@@ -1,6 +1,8 @@
-package app.interfaz;
+package app;
 
 import java.awt.EventQueue;
+
+import app.interfaz.Enrutador;
 
 public class CliqueGolosa {
 
