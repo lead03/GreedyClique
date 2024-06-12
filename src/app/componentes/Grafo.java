@@ -57,21 +57,11 @@ public class Grafo {
         return copia;
     }
     
-    public void imprimirMatrizAdyacencia() {
-        System.out.println("Matriz de Adyacencia:");
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                System.out.print(matrizAdyacencia[i][j] + " ");
-            }
-            System.out.println();
+    public double obtenerPeso(int v) {
+        if (v >= 0 && v < V) {
+            return pesos[v];
+        } else {
+            throw new IllegalArgumentException("Índice de vértice fuera de rango");
         }
-    }
-    
-    public void imprimirPesos() {
-        System.out.println("Pesos de los Vértices:");
-        for (int i = 0; i < pesos.length; i++) {
-            System.out.print(pesos[i] + " ");
-        }
-        System.out.println();
     }
 }
