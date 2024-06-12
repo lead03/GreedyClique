@@ -9,29 +9,35 @@ import app.componentes.Grafo;
 import app.componentes.GrafoJSONLoader;
 
 public class ViewCargaGrafo extends JFrame {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Grafo grafo;
+    private Grafo grafo;
 
     public ViewCargaGrafo() {
         setTitle("Carga de Grafo desde JSON");
-        setSize(600, 400);
+        setSize(900, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout());
 
-        // Panel para el ejemplo de JSON
+        
         JPanel panelEjemplo = new JPanel();
         panelEjemplo.setLayout(new BorderLayout());
+
+
         JTextArea textAreaEjemplo = new JTextArea();
         textAreaEjemplo.setEditable(false);
+        textAreaEjemplo.setFont(new Font("Monospaced", Font.PLAIN, 26));
+        textAreaEjemplo.setBackground(Color.DARK_GRAY);
+        textAreaEjemplo.setForeground(Color.WHITE);
         textAreaEjemplo.setText(getJsonExample());
+
         panelEjemplo.add(new JScrollPane(textAreaEjemplo), BorderLayout.CENTER);
-        
+
         JLabel labelEjemplo = new JLabel("Ejemplo de Formato JSON:");
         labelEjemplo.setHorizontalAlignment(SwingConstants.CENTER);
         panelEjemplo.add(labelEjemplo, BorderLayout.NORTH);
+
         
-        // Botón para cargar el archivo JSON
         JButton btnUploadJson = new JButton("Cargar Grafo desde JSON");
         btnUploadJson.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -48,7 +54,7 @@ public class ViewCargaGrafo extends JFrame {
     }
 
     private void cargarGrafoDesdeJson() {
-    	JFileChooser fileChooser = new JFileChooser();
+        JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Archivos JSON", "json"));
         int returnValue = fileChooser.showOpenDialog(this);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
@@ -56,8 +62,6 @@ public class ViewCargaGrafo extends JFrame {
             try {
                 grafo = GrafoJSONLoader.cargarGrafoDesdeJson(selectedFile);
                 JOptionPane.showMessageDialog(this, "Grafo cargado correctamente desde " + selectedFile.getName());
-                
-                
                 Enrutador.getInstancia().finishWindows(this, new ViewPantallaFinal(grafo), false);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error al cargar el archivo JSON: " + e.getMessage());
@@ -80,4 +84,3 @@ public class ViewCargaGrafo extends JFrame {
                "}";
     }
 }
-    
